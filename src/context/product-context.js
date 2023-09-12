@@ -34,14 +34,17 @@ export default props => {
   ]);
 
   const toggleFavorite = productId => {
-    setProductsList(currentProdList => {
-      const prodIndex = currentProdList.findIndex(p => p.id === productId);
-      const newFavStatus = !currentProdList[prodIndex].isFavorite;
-      const updatedProducts = [...currentProdList];
+    setProductsList(currentProductList => {
+      const prodIndex = currentProductList.findIndex(
+        p => p.id === productId
+      );
+      const newFavStatus = !currentProductList[prodIndex].isFavorite;
+      const updatedProducts = [...currentProductList];
       updatedProducts[prodIndex] = {
-        ...currentProdList[prodIndex],
+        ...currentProductList[prodIndex],
         isFavorite: newFavStatus
       };
+
       return updatedProducts;
     });
   };
